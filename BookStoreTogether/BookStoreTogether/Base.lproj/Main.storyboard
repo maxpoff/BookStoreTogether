@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="dpW-RI-AyU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="dpW-RI-AyU" customClass="BookTableViewCell" customModule="BookStoreTogether" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dpW-RI-AyU" id="8lE-VM-7nw">
@@ -62,7 +62,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="59P-PO-gHr" kind="show" id="rli-j9-iUq"/>
+                                    <outlet property="bookAuthorLabel" destination="oZF-ta-5RX" id="0OD-vn-MCl"/>
+                                    <outlet property="bookRatingLabel" destination="tQG-Kf-Uef" id="bm5-jG-2L6"/>
+                                    <outlet property="bookTitleLabel" destination="MMz-YJ-vl6" id="b9H-9g-29w"/>
+                                    <segue destination="59P-PO-gHr" kind="show" identifier="toDetailVC" id="rli-j9-iUq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +75,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vPI-er-he1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="JbY-Dz-L14"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="JbY-Dz-L14">
+                            <connections>
+                                <segue destination="59P-PO-gHr" kind="show" id="apf-lB-Bz6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9E-JV-z9T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -136,7 +143,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="910-nE-lCj">
                                 <rect key="frame" x="10" y="773.66666666666663" width="373" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="clear text"/>
                                 <connections>
                                     <action selector="clearButtonTapped:" destination="59P-PO-gHr" eventType="touchUpInside" id="c2Z-ok-gKT"/>
                                 </connections>
@@ -201,6 +208,9 @@
             <point key="canvasLocation" x="235.87786259541983" y="-34.507042253521128"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rli-j9-iUq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="puppyCute" width="1200" height="602"/>
         <systemColor name="labelColor">

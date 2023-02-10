@@ -9,15 +9,15 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	// MARK: - Outlets
+	@IBOutlet weak var bookTitleLabel: UILabel!
+	@IBOutlet weak var bookAuthorLabel: UILabel!
+	@IBOutlet weak var bookRatingLabel: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+	// MARK: - Methods
+	func updateViews(book: Book) {
+		bookTitleLabel.text = book.title
+		bookAuthorLabel.text = book.author
+		bookRatingLabel.text = String(book.rating)
+	}
 }
